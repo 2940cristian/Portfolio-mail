@@ -2,6 +2,7 @@ const express = require("express");
 const server = express();
 const mongoose = require("mongoose");
 const Message = require("./Models/Message")
+const cors = require("cors");
 
 mongoose.connect("mongodb://localhost/PortfolioMessages", {useNewUrlParser: true}).then(mongo => {
     console.log("Connected to database")
@@ -10,6 +11,7 @@ mongoose.connect("mongodb://localhost/PortfolioMessages", {useNewUrlParser: true
 })
 
 server.use(express.json())
+server.use(cors())
 
 server.get("/", (req, res) => {
     Message.find().then(messages => {
