@@ -13,6 +13,10 @@ mongoose.connect(`mongodb://2940cristian:${process.env.MLABS_PASSWORD}@ds261302.
 server.use(express.json())
 server.use(cors())
 
+server.get("/wakeup", (req, res) => { //On FE a function call on component mount will wake up the server as it is on a free dyno
+    res.status(200)
+})
+
 server.get("/", (req, res) => {
     Message.find().then(messages => {
         res.status(200).json(messages)
