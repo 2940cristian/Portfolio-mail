@@ -45,4 +45,4 @@ server.delete("/:id", (req, res) => {
         res.status(400).json({err: "No message by that id was found"})
     })
 })
-server.listen( process.env || 5000, () => {console.log("Now listening on port 5000")})
+server.listen( process.env.PORT || 5000, () => {console.log("Now listening on port 5000")})
