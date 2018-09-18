@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const Message = require("./Models/Message")
 const cors = require("cors");
 
-mongoose.connect("mongodb://localhost/PortfolioMessages", {useNewUrlParser: true}).then(mongo => {
+mongoose.connect(`mongodb://2940cristian:${process.env.MLABS_PASSWORD}@ds261302.mlab.com:61302/messages1`, {useNewUrlParser: true}).then(mongo => {
     console.log("Connected to database")
 }).catch(err => {
     console.log("Error connecting to database")
